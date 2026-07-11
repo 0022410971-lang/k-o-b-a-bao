@@ -1,0 +1,36 @@
+/* ============================================================================
+   RPS DUEL - Fullscreen layout
+   Body/html fill the entire viewport with no scrollbars or margins.
+   #game-wrapper stretches to 100vw x 100vh; script.js's _resize() then scales
+   the canvas (keeping its 720x420 aspect ratio) to fit as large as possible
+   inside that space and centers it.
+   ========================================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;       /* no scrollbars */
+  background: #000;       /* letterbox color around the canvas */
+}
+
+#game-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+#gameCanvas {
+  display: block;
+  /* Actual pixel size is set dynamically by script.js (_resize) to preserve
+     the 720x420 aspect ratio while filling the wrapper as much as possible. */
+  touch-action: manipulation; /* avoids double-tap zoom delay on mobile taps */
+}
